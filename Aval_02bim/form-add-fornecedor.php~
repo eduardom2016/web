@@ -1,4 +1,6 @@
-<!-- Nome: Eduardo Martins - 3 Info -->
+<?php
+	require 'init-fornecedor.php';
+?>
 <!DOCTYPE html>
 <html><head>
         <meta charset="utf-8">
@@ -17,20 +19,20 @@
             <!-- Template main Css -->
             <link rel="stylesheet" href="assets/css/style.css">
             <link rel="stylesheet" href="estilo.css">
+			<link rel="stylesheet" href="jquery-ui.css">
             <!-- Modernizr -->
             <script src="assets/js/modernizr-2.6.2.min.js"></script>
-             <script type="text/javascript" src="jquery-2.1.1.min.js"></script>,
+           <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+			 <script type="text/javascript" src="jquery-ui.js"></script>
            
             <script type="text/javascript" src="jquery.maskedinput.js"></script>
             <script type="text/javascript" src="datepicker-pt-BR.js"></script>
-             <script type="text/javascript" src="script.js"></script>
-             <script type="text/javascript" src="jquery-ui.js"></script>
-             
-				<script type="text/javascript" src="calendario.js"></script>
-				<script type = "text/javascript" src ="validacao.js"></script>
-                      <link rel="stylesheet" href="jquery-ui.css">
-    </head><body>
-        <header class="main-header">
+            <script type="text/javascript" src="script.js"></script>            
+			<script type="text/javascript" src="calendario.js"></script>
+			<script type = "text/javascript" src ="validacao.js"></script>
+    </head>
+	<body>
+      <header class="main-header">
             <nav class="navbar navbar-static-top">
                 <div class="navbar-top"></div>
                 <div class="navbar-main">
@@ -42,7 +44,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
-                            <a class="navbar-brand" href="index.html"><img src="oficial.png" alt=""></a>
+                            <a class="navbar-brand" href="index.html"><img src="../oficial.png" alt=""></a>
                         </div>
                         <div id="navbar" class="navbar-collapse collapse pull-right">
                             <ul class="nav navbar-nav">
@@ -75,34 +77,38 @@
         <!-- /.carousel -->
         <!-- /.about-us -->
         <div class="section-home home-reasons"></div>
-        <!-- /.home-reasons -->
-        <div class="conteudovariavel" id="variavel">
-            <div class="container" id="miolo">
-                <div class="col-md-3 col-sm-6" id="paragrafo">
-                    <div class="cause">
-                        <div class="progress cause-progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
-                        </div>
-                        <h4 class="cause-title">
-                            <a>O SISTEMA </a>
-                        </h4>
-                        <div class="cause-details" id="conteudoparagrafo">
-                            <p>O sistema implementado pela <b>Mussel Enterprises</b>, possui como finalidade, levar praticidade para
-                                seus usuários, apresentando de forma eficaz a relação de clientes e fornecedores
-                                cadastrados em nosso sistema.</p>
-                            <p>Além disso, ele oferece diversas funcionalidades, no qual pode-se destacar:
-                                <b>inserção, edição e exclusão de registros</b>. Tais funcionalidades possibilitam
-                                que o usuário possa manter seu banco de dados sempre atualizado, visando
-                                sempre atender as necessidades da empresa.</p>
-                        </div>
-                    </div>
-                    <!-- /.cause -->
-                </div>
-            </div>
-        </div>
-        <!-- /.our-causes -->
-        <!-- /.our-sponsors -->
-        <footer class="main-footer">
+<div id="variavel">
+
+       
+		<form method="post" name="formCadastro" action="add-fornecedor.php" enctype="multipart/form-data" onSubmit="return validacao()">
+				<h1>Cadastro Fornecedores</h1>
+			<table width="100%">
+				<tr>
+					<th width="18%">Nome</th>
+					<td width="82%"><input type="text" name="txtNome" id="nome"></td>
+				</tr>				
+				<tr>
+				
+				<tr>
+					<th width="18%">Email</th>
+					<td width="82%"><input type="text" name="txtEmail" id="email"></td>
+				</tr>				
+								
+				<tr>
+					<th>Data de Fundacao</th>
+					<td><input type="text" id="data" name="txtData" class="calendarioF" readonly></td>
+				</tr>
+				<tr></tr>
+				<tr>
+					<td></td>				
+					<td><input type="submit" name="bntEnviar" value="Cadastrar">
+					<input type="reset" name="bntLimpar" value="Limpar"></td>
+				</tr>
+
+			</table>
+		</form>
+</div>		
+<footer class="main-footer">
             <div class="footer-top"></div>
             <div class="footer-main">
                 <div class="container">
@@ -129,32 +135,7 @@
                 </div>
             </div>
         </footer>
-        <!-- main-footer -->
-        <!-- Donate Modal -->
-        <!-- /.modal -->
-        <!-- Scripts==================================================- ->
 
-    <!-- jQuery -->
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        <script>
-            window.jQuery || document.write('<script src="assets/js/jquery-1.11.1.min.js"><\/script>')
-        </script>
-        <!-- Bootsrap javascript file -->
-        <script src="assets/js/bootstrap.min.js"></script>
-        <!-- owl carouseljavascript file -->
-        <script src="assets/js/owl.carousel.min.js"></script>
-        <!-- Template main javascript -->
-        <script src="assets/js/main.js"></script>
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID.
-        -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-                            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-                            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-                            e.src='//www.google-analytics.com/analytics.js';
-                            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-                            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
-    
-
-</body></html>
+</body>
+</html>
+		
